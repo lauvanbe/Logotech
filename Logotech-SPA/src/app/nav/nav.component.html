@@ -1,16 +1,16 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-primary">
   <div class="container">
-      <a class="navbar-brand" href="#">Logotech</a>
+      <a class="navbar-brand" [routerLink]="['/accueil']" >Logotech</a>
 
       <ul *ngIf="loggedIn()" class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Logopède</a>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/liste-logopedes']" >Logopède</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Patient</a>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/liste-patients']" >Patient</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Agenda</a>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/agenda']" >Agenda</a>
         </li>
       </ul>
     

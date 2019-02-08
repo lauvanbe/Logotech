@@ -20,13 +20,4 @@ export class PraticienDetailComponent implements OnInit {
       this.praticien = data['praticien'];
     });
   }
-
-  // loadPraticien() {
-  //   this.praticienService.getPraticien(+this.route.snapshot.params['id']).subscribe((praticien: Praticien) => {
-  //     this.praticien = praticien;
-  //   }, error => {
-  //     this.alertify.error(error);
-  //   });
-  // }
-
 }

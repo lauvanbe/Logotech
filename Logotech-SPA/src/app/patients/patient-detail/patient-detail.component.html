@@ -1,0 +1,62 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <img class="card-img-top img-thumbnail" src="{{ patient.photoUrl }}" alt="{{ patient.nom }}">
+        <div class="card-body">
+          <div>
+            <strong>Données personnelles:</strong>
+            <ul>
+              <li>Nom: {{ patient.nom}}</li>
+              <li>Prénom: {{ patient.prenom }}</li>  
+              <li>Date de naissance: {{ patient.dateNaissance }}</li>
+              <li>Email: {{ patient.email}}</li>
+              <li>Téléphone fixe: {{ patient.telFixe }}</li>
+              <li>Gsm: {{ patient.gsm }}</li>
+            </ul>
+          </div>
+          <div>
+            <strong>Latéralité:</strong>
+            <p>{{ patient.lateralite.nom }}</p>
+          </div>
+          <div>
+            <strong>Personne de contact:</strong>
+            <ul>
+              <li>Nom: {{ patient.personneContact }}</li>
+              <li>Téléphone: {{ patient.telContact }}</li>
+            </ul> 
+          </div> 
+          <div>
+            <strong>Adresse:</strong>
+            <ul>
+              <li>Rue: {{ patient.adresse.rue}}, {{ patient.adresse.numeroRue}}</li>
+              <li>Boite postal: {{ patient.adresse.boitePostal}}</li>  
+              <li>Ville: {{ patient.adresse.codePostal }}, {{ patient.adresse.ville }}</li>
+              <li>Pays: {{ patient.adresse.pays}}</li>
+            </ul>
+          </div>
+          <div class="card-footer">
+            <div class="btn-group d-flex">
+              <button class="btn btn-warning w-100">Modifier</button>
+              <button class="btn btn-danger w-100">Supprimer</button>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-8">
+    <div class="tab-panel">
+      <tabset class="patient-tabset">
+        <tab heading="Anamnèse">
+        <h4>Anamnèse</h4>
+        <p>{{ patient.anamnese }}</p>
+      </tab>
+      <tab heading="Commentaires">
+        <h4>Commentaires</h4>
+        <p>{{ patient.commentaire }}</p>
+      </tab>
+      </tabset>
+    </div>
+  </div>
+</div>
+

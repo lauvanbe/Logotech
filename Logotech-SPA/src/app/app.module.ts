@@ -13,7 +13,6 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { AlertifyService } from './_services/alertify.service';
-import { ListePatientsComponent } from './liste-patients/liste-patients.component';
 import { AgendaComponent } from './agenda/agenda.component';
 import { appRoutes } from './routes';
 import { AuthGuard } from './_guards/auth.guard';
@@ -23,6 +22,12 @@ import { PraticienCardComponent } from './praticiens/praticien-card/praticien-ca
 import { PraticienDetailComponent } from './praticiens/praticien-detail/praticien-detail.component';
 import { PraticienDetailResolver } from './_resolvers/praticien-detail.resolver';
 import { PraticienListeResolver } from './_resolvers/liste-praticien.resolver';
+import { ListePatientsComponent } from './patients/liste-patients/liste-patients.component';
+import { PatientService } from './_services/patient.service';
+import { PatientListeResolver } from './_resolvers/liste-patient.resolver';
+import { PatientCardComponent } from './patients/patient-card/patient-card.component';
+import { PatientDetailComponent } from './patients/patient-detail/patient-detail.component';
+import { PatientDetailResolver } from './_resolvers/patient-detail.resolver';
 
 
 export function tokenGetter() {
@@ -36,6 +41,8 @@ export function tokenGetter() {
       HomeComponent,
       RegisterComponent,
       ListePatientsComponent,
+      PatientCardComponent,
+      PatientDetailComponent,
       AgendaComponent,
       ListePraticiensComponent,
       PraticienCardComponent,
@@ -63,7 +70,10 @@ export function tokenGetter() {
       AuthGuard,
       PraticienService,
       PraticienDetailResolver,
-      PraticienListeResolver
+      PraticienListeResolver,
+      PatientService,
+      PatientListeResolver,
+      PatientDetailResolver
    ],
    bootstrap: [
       AppComponent

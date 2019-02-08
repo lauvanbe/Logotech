@@ -2,11 +2,11 @@
   <div class="row">
     <div class="col-sm-4">
       <div class="card">
-        <img class="card-img-top img-thumbnail" src="{{ praticien?.photoUrl }}" alt="{{ praticien?.nom }}">
+        <img class="card-img-top img-thumbnail" src="{{ praticien.photoUrl }}" alt="{{ praticien.nom }}">
         <div class="card-body">
           <div>
             <strong>Fonction:</strong>
-            <p>{{ praticien.fonction?.nom }}</p>
+            <p>{{ praticien.fonction.nom }}</p>
           </div>
           <div>
             <strong>Spécialisation:</strong>
@@ -35,8 +35,7 @@
           </div>
           <div class="card-footer">
             <div class="btn-group d-flex">
-              <button class="btn btn-success w-100">Message</button>
-              <button class="btn btn-warning w-100">Editer</button>
+              <button class="btn btn-warning w-100">Modifier</button>
               <button class="btn btn-danger w-100">Supprimer</button>
             </div>
           </div>

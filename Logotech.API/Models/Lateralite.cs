@@ -11,7 +11,5 @@ namespace Logotech.API.Models
         [StringLength(55)]
         [Display(Name = "Latéralité")]
         public string nom { get; set; }
-
-        public IList<Patient> Patients { get; set; }
     }
 }

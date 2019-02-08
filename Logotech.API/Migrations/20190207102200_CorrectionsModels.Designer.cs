@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Logotech.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20190126051224_MoreModels")]
-    partial class MoreModels
+    [Migration("20190207102200_CorrectionsModels")]
+    partial class CorrectionsModels
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -81,7 +81,7 @@ namespace Logotech.API.Migrations
 
                     b.Property<int>("AdresseId");
 
-                    b.Property<string>("Anamnèse")
+                    b.Property<string>("Anamnese")
                         .IsRequired()
                         .HasMaxLength(2000);
 
@@ -103,6 +103,8 @@ namespace Logotech.API.Migrations
 
                     b.Property<string>("PersonneContact")
                         .HasMaxLength(55);
+
+                    b.Property<string>("PhotoUrl");
 
                     b.Property<string>("Prenom")
                         .IsRequired()
@@ -142,6 +144,8 @@ namespace Logotech.API.Migrations
                     b.Property<string>("Nom")
                         .IsRequired()
                         .HasMaxLength(55);
+
+                    b.Property<string>("PhotoUrl");
 
                     b.Property<string>("Prenom")
                         .IsRequired()
@@ -195,12 +199,12 @@ namespace Logotech.API.Migrations
             modelBuilder.Entity("Logotech.API.Models.Patient", b =>
                 {
                     b.HasOne("Logotech.API.Models.Adresse", "Adresse")
-                        .WithMany("Patients")
+                        .WithMany()
                         .HasForeignKey("AdresseId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Logotech.API.Models.Lateralite", "Lateralite")
-                        .WithMany("Patients")
+                        .WithMany()
                         .HasForeignKey("LateraliteId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

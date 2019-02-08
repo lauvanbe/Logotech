@@ -11,6 +11,18 @@ namespace Logotech.API.Data
         {
             _context = context;
         }
+        
+        public void SeedLateralite()
+        {
+            var lateraliteData = System.IO.File.ReadAllText("Data/SeedDataLateralite.json");
+            var lateralites = JsonConvert.DeserializeObject<List<Lateralite>>(lateraliteData);
+            foreach (var lateralite in lateralites)
+            {
+                _context.Lateralites.Add(lateralite);
+            }
+            
+            _context.SaveChanges();
+        }
 
         public void SeedFonction()
         {
@@ -20,17 +32,53 @@ namespace Logotech.API.Data
             {
                 _context.Fonctions.Add(fonction);
             }
-
+            
             _context.SaveChanges();
         }
 
-        public void SeedLateralite()
+        public void SeedSpecialisation()
         {
-            var lateraliteData = System.IO.File.ReadAllText("Data/SeedDataLateralite.json");
-            var lateralites = JsonConvert.DeserializeObject<List<Lateralite>>(lateraliteData);
-            foreach (var lateralite in lateralites)
+            var specialisationData = System.IO.File.ReadAllText("Data/SeedDataSpecialisation.json");
+            var specialisations = JsonConvert.DeserializeObject<List<Specialisation>>(specialisationData);
+            foreach (var specialisation in specialisations)
             {
-                _context.Lateralites.Add(lateralite);
+                _context.Specialisations.Add(specialisation);
+            }
+            
+            _context.SaveChanges();
+        }
+
+        public void SeedAdresse()
+        {
+            var adresseData = System.IO.File.ReadAllText("Data/SeedDataAdresse.json");
+            var adresses = JsonConvert.DeserializeObject<List<Adresse>>(adresseData);
+            foreach (var adresse in adresses)
+            {
+                _context.Adresses.Add(adresse);
+            }
+            
+            _context.SaveChanges();
+        }
+
+        public void SeedPraticien()
+        {
+            var praticienData = System.IO.File.ReadAllText("Data/SeedDataPraticien.json");
+            var praticiens = JsonConvert.DeserializeObject<List<Praticien>>(praticienData);
+            foreach (var praticien in praticiens)
+            {
+                _context.Praticiens.Add(praticien);
+            }
+            
+            _context.SaveChanges();
+        }
+
+        public void SeedPatient()
+        {
+            var patientData = System.IO.File.ReadAllText("Data/SeedDataPatient.json");
+            var patients = JsonConvert.DeserializeObject<List<Patient>>(patientData);
+            foreach (var patient in patients)
+            {
+                _context.Patients.Add(patient);
             }
             
             _context.SaveChanges();

@@ -1,0 +1,46 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <img class="card-img-top img-thumbnail" src="{{ praticien?.photoUrl }}" alt="{{ praticien?.nom }}">
+        <div class="card-body">
+          <div>
+            <strong>Fonction:</strong>
+            <p>{{ praticien.fonction?.nom }}</p>
+          </div>
+          <div>
+            <strong>Spécialisation:</strong>
+            <p>{{ praticien.specialisation.nom }}</p>
+          </div> 
+          <div>
+            <strong>Téléphone fixe:</strong>
+            <p>{{ praticien.telFixe }}</p>
+          </div> 
+          <div>
+            <strong>Gsm:</strong>
+            <p>{{ praticien.gsm }}</p>
+          </div>
+          <div>
+            <strong>Déplacement:</strong>
+            <p>{{ praticien.deplacement }}</p>
+          </div>
+          <div>
+            <strong>Adresse:</strong>
+            <ul>
+              <li>Rue: {{ praticien.adresse.rue}}, {{ praticien.adresse.numeroRue}}</li>
+              <li>Boite postal: {{ praticien.adresse.boitePostal}}</li>  
+              <li>Ville: {{ praticien.adresse.codePostal }}, {{ praticien.adresse.ville }}</li>
+              <li>Pays: {{ praticien.adresse.pays}}</li>
+            </ul>
+          </div>
+          <div class="card-footer">
+            <div class="btn-group d-flex">
+              <button class="btn btn-success w-100">Message</button>
+              <button class="btn btn-warning w-100">Editer</button>
+              <button class="btn btn-danger w-100">Supprimer</button>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

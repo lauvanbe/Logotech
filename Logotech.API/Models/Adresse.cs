@@ -31,8 +31,6 @@ namespace Logotech.API.Models
         [Required(ErrorMessage = "Pays requis.")]
         [StringLength(55)]
         [Display(Name = "Pays")]
-        public string Pays { get; set; }
-
-        public IList<Patient> Patients { get; set; }  
+        public string Pays { get; set; } 
     }
 }

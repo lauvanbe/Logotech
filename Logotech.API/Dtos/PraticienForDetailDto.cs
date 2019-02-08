@@ -12,6 +12,7 @@ namespace Logotech.API.Dtos
         public int TelFixe { get; set; }
         public int Gsm { get; set; }
         public bool Deplacement { get; set; }
+        public string PhotoUrl { get; set; }
         public Adresse Adresse { get; set; }
         public Specialisation Specialisation { get; set; }
         public Fonction Fonction { get; set; }

@@ -1,0 +1,74 @@
+[
+  {
+    "Rue": "Morton Street",
+    "NumeroRue": 171,
+    "BoitePostal": 5,
+    "CodePostal": 8314,
+    "Ville": "Lavalette",
+    "Pays": "Nigeria"
+  },
+  {
+    "Rue": "Cooper Street",
+    "NumeroRue": 316,
+    "BoitePostal": 20,
+    "CodePostal": 9577,
+    "Ville": "National",
+    "Pays": "Myanmar"
+  },
+  {
+    "Rue": "Anchorage Place",
+    "NumeroRue": 26,
+    "BoitePostal": 15,
+    "CodePostal": 3226,
+    "Ville": "Gerton",
+    "Pays": "Benin"
+  },
+  {
+    "Rue": "Schermerhorn Street",
+    "NumeroRue": 492,
+    "BoitePostal": 19,
+    "CodePostal": 1644,
+    "Ville": "Bakersville",
+    "Pays": "Bouvet Island"
+  },
+  {
+    "Rue": "Chestnut Street",
+    "NumeroRue": 258,
+    "BoitePostal": 14,
+    "CodePostal": 1977,
+    "Ville": "Templeton",
+    "Pays": "Anguilla"
+  },
+  {
+    "Rue": "Jodie Court",
+    "NumeroRue": 148,
+    "BoitePostal": 18,
+    "CodePostal": 5316,
+    "Ville": "Sharon",
+    "Pays": "S. Georgia and S. Sandwich Isls."
+  },
+  {
+    "Rue": "Tompkins Avenue",
+    "NumeroRue": 528,
+    "BoitePostal": 14,
+    "CodePostal": 7051,
+    "Ville": "Crucible",
+    "Pays": "Puerto Rico"
+  },
+  {
+    "Rue": "Grace Court",
+    "NumeroRue": 70,
+    "BoitePostal": 7,
+    "CodePostal": 8330,
+    "Ville": "Century",
+    "Pays": "Pitcairn"
+  },
+  {
+    "Rue": "Wyckoff Street",
+    "NumeroRue": 606,
+    "BoitePostal": 14,
+    "CodePostal": 4059,
+    "Ville": "Hiko",
+    "Pays": "Italy"
+  }
+]

@@ -81,8 +81,12 @@ namespace Logotech.API
             }
 
             // app.UseHttpsRedirection();
-            // seeder.SeedFonction();
             // seeder.SeedLateralite();
+            // seeder.SeedFonction();
+            // seeder.SeedSpecialisation();
+            // seeder.SeedAdresse();
+            // seeder.SeedPraticien();
+            // seeder.SeedPatient();
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseAuthentication();
             app.UseMvc();

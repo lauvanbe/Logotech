@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Logotech.API.Migrations
 {
-    public partial class MoreModels : Migration
+    public partial class MoreModel : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -81,8 +81,9 @@ namespace Logotech.API.Migrations
                     Gsm = table.Column<int>(nullable: true),
                     PersonneContact = table.Column<string>(maxLength: 55, nullable: true),
                     TelContact = table.Column<int>(nullable: true),
-                    Anamnèse = table.Column<string>(maxLength: 2000, nullable: false),
+                    Anamnese = table.Column<string>(maxLength: 2000, nullable: false),
                     Commentaire = table.Column<string>(maxLength: 250, nullable: true),
+                    PhotoUrl = table.Column<string>(nullable: true),
                     AdresseId = table.Column<int>(nullable: false),
                     LateraliteId = table.Column<int>(nullable: false)
                 },
@@ -116,6 +117,7 @@ namespace Logotech.API.Migrations
                     TelFixe = table.Column<int>(nullable: false),
                     Gsm = table.Column<int>(nullable: false),
                     Deplacement = table.Column<bool>(nullable: false),
+                    PhotoUrl = table.Column<string>(nullable: true),
                     AdresseId = table.Column<int>(nullable: false),
                     SpecialisationId = table.Column<int>(nullable: false),
                     FonctionId = table.Column<int>(nullable: false)

@@ -3,14 +3,16 @@ using System;
 using Logotech.API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Logotech.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20190206142348_MoreModel")]
+    partial class MoreModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -197,12 +199,12 @@ namespace Logotech.API.Migrations
             modelBuilder.Entity("Logotech.API.Models.Patient", b =>
                 {
                     b.HasOne("Logotech.API.Models.Adresse", "Adresse")
-                        .WithMany()
+                        .WithMany("Patients")
                         .HasForeignKey("AdresseId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Logotech.API.Models.Lateralite", "Lateralite")
-                        .WithMany()
+                        .WithMany("Patients")
                         .HasForeignKey("LateraliteId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
@@ -214,7 +216,7 @@ namespace Logotech.API.Migrations
                         .HasForeignKey("AdresseId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("Logotech.API.Models.Fonction", "Fonction")
+                    b.HasOne("Logotech.API.Models.Fonction", "Fonctions")
                         .WithMany()
                         .HasForeignKey("FonctionId")
                         .OnDelete(DeleteBehavior.Cascade);

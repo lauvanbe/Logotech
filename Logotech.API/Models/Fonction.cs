@@ -9,6 +9,7 @@ namespace Logotech.API.Models
         [Required(ErrorMessage = "Le nom de la fonction est requis.")]
         [Display(Name = "Nom de la fonction")]
         [StringLength(55)]
-        public string Nom { get; set; } 
+        public string Nom { get; set; }
+
     }
 }

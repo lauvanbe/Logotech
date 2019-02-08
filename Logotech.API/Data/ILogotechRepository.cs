@@ -11,6 +11,8 @@ namespace Logotech.API.Data
         Task<bool> SaveAll();
         Task<IEnumerable<Praticien>> GetPraticiens();
         Task<Praticien> GetPraticien(int id);
+        Task<IEnumerable<Patient>> GetPatients();
+        Task<Patient> GetPatient(int id);
 
     }
 }

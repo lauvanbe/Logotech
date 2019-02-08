@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -22,7 +23,7 @@ namespace Logotech.API.Models
         [StringLength(55)]
         public string Prenom { get; set; }
 
-        [Required(ErrorMessage = "Email du praticien requis.")]
+        [Required(ErrorMessage = "Email du logopède requis.")]
         [Display(Name = "Adresse Email")]
         [DataType(DataType.EmailAddress)]
         [EmailAddress]
@@ -38,6 +39,8 @@ namespace Logotech.API.Models
         [Display(Name = "Visites à domicile")]
         public bool Deplacement { get; set; }
 
+        public string PhotoUrl { get; set; }
+
         public Adresse Adresse { get; set; }
 
         [ForeignKey("Adresse")]
@@ -51,6 +54,6 @@ namespace Logotech.API.Models
         public Fonction Fonction { get; set; }
 
         [ForeignKey("Fonction")]
-        public int FonctionId { get; set; }      
+        public int FonctionId { get; set; } 
     }
 }

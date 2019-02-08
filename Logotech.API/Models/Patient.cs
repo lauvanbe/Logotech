@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -46,11 +47,13 @@ namespace Logotech.API.Models
         [Required(ErrorMessage = "Anamnèse requise.")]
         [StringLength(2000)]
         [Display(Name = "Anamnèse")]
-        public string Anamnèse { get; set; }
+        public string Anamnese { get; set; }
 
         [StringLength(250)]
         [Display(Name = "Commentaire")]
         public string Commentaire { get; set; }
+
+        public string PhotoUrl { get; set; }
 
         public Adresse Adresse { get; set; }
 
@@ -60,6 +63,6 @@ namespace Logotech.API.Models
         public Lateralite Lateralite { get; set; }
 
         [ForeignKey("Lateralite")]
-        public int LateraliteId { get; set; }
+        public int LateraliteId { get; set; }  
     }
 }

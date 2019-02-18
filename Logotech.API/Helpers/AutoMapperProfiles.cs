@@ -13,6 +13,8 @@ namespace Logotech.API.Helpers
 
             CreateMap<Patient, PatientForListDto>();
             CreateMap<Patient, PatientForDetailDto>();
+
+            CreateMap<PatientForUpdateDto, Patient>();
         }
     }
 }

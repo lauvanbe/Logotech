@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -39,6 +40,19 @@ namespace Logotech.API.Controllers
             var patientToReturn = _mapper.Map<PatientForDetailDto>(patient);
 
             return Ok(patientToReturn);
-        }       
+        } 
+
+        [HttpPut("edit/{id}")]
+        public async Task<IActionResult> UpdatePatient(int id, PatientForUpdateDto patientForUpdateDto)
+        {
+            var patientFromRepo = await _repo.GetPatient(id);
+
+            _mapper.Map(patientForUpdateDto, patientFromRepo);
+
+            if (await _repo.SaveAll())
+             return NoContent();
+
+            throw new Exception($"Les modifications pour le patient {id} n'ont pas pu être sauvegardées");
+        }     
     }
 }

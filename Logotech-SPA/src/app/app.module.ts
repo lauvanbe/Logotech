@@ -28,6 +28,9 @@ import { PatientCardComponent } from './patients/patient-card/patient-card.compo
 import { PatientDetailComponent } from './patients/patient-detail/patient-detail.component';
 import { PatientDetailResolver } from './_resolvers/patient-detail.resolver';
 import { AgendaComponent } from './agenda/agenda.component';
+import { PatientEditComponent } from './patients/patient-edit/patient-edit.component';
+import { PatientEditResolver } from './_resolvers/patient-edit.resolver';
+import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 
 
 
@@ -44,6 +47,7 @@ export function tokenGetter() {
       ListePatientsComponent,
       PatientCardComponent,
       PatientDetailComponent,
+      PatientEditComponent,
       ListePraticiensComponent,
       PraticienCardComponent,
       PraticienDetailComponent,
@@ -69,12 +73,14 @@ export function tokenGetter() {
       ErrorInterceptorProvider,
       AlertifyService,
       AuthGuard,
+      PreventUnsavedChanges,
       PraticienService,
       PraticienDetailResolver,
       PraticienListeResolver,
       PatientService,
       PatientListeResolver,
-      PatientDetailResolver
+      PatientDetailResolver,
+      PatientEditResolver
    ],
    bootstrap: [
       AppComponent

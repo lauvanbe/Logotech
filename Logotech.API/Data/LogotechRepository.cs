@@ -49,6 +49,7 @@ namespace Logotech.API.Data
 
             return patients;
         }
+
         public async Task<bool> SaveAll()
         {
             return await _context.SaveChangesAsync() > 0;

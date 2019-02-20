@@ -1,7 +1,7 @@
 <div class="container mt-4">
   <div class="row">
     <div class="col-sm-4">
-        <h1>Profil de {{ patient.prenom }} {{ patient.nom }}</h1>      
+        <h1>Profil de {{ patient.prenom }} {{ patient.nom }}</h1>
     </div>
     <div class="col-sm-8">
       <div *ngIf="editForm.dirty" class="alert alert-info">
@@ -18,8 +18,8 @@
             <strong>Données personnelles:</strong>
             <ul>
               <li>Nom: {{ patient.nom}}</li>
-              <li>Prénom: {{ patient.prenom }}</li>  
-              <li>Date de naissance: {{ patient.dateNaissance }}</li>
+              <li>Prénom: {{ patient.prenom }}</li>
+              <li>Date de naissance: {{ patient.dateNaissance | date :'dd/MM/yyyy'}}</li>
               <li>Email: {{ patient.email}}</li>
               <li>Téléphone fixe: {{ patient.telFixe }}</li>
               <li>Gsm: {{ patient.gsm }}</li>
@@ -34,13 +34,13 @@
             <ul>
               <li>Nom: {{ patient.personneContact }}</li>
               <li>Téléphone: {{ patient.telContact }}</li>
-            </ul> 
-          </div> 
+            </ul>
+          </div>
           <div>
             <strong>Adresse:</strong>
             <ul>
               <li>Rue: {{ patient.adresse.rue}}, {{ patient.adresse.numeroRue}}</li>
-              <li>Boite postal: {{ patient.adresse.boitePostal}}</li>  
+              <li>Boite postal: {{ patient.adresse.boitePostal}}</li>
               <li>Ville: {{ patient.adresse.codePostal }}, {{ patient.adresse.ville }}</li>
               <li>Pays: {{ patient.adresse.pays}}</li>
             </ul>
@@ -59,9 +59,9 @@
               <h5><label for="nom">Nom: </label></h5>
               <input type="text" class="form-control" name="nom" [(ngModel)]="patient.nom">
               <h5><label for="prenom">Prénom: </label></h5>
-              <input type="text" class="form-control" name="prenom" [(ngModel)]="patient.prenom"> 
+              <input type="text" class="form-control" name="prenom" [(ngModel)]="patient.prenom">
               <h5><label for="dateNaissance">Date de naissance: </label></h5>
-              <input type="text" class="form-control" name="dateNaissance" [(ngModel)]="patient.dateNaissance">  
+              <input type="text" class="form-control" name="dateNaissance" [(ngModel)]="patient.dateNaissance">
               <h5><label for="email">Email: </label></h5>
               <input type="text" class="form-control" name="email" [(ngModel)]="patient.email">
               <h5><label for="telFixe">Téléphone fixe: </label></h5>
@@ -83,11 +83,11 @@
               <h5><label for="rue">Rue: </label></h5>
               <input type="text" class="form-control" name="rue" [(ngModel)]="patient.adresse.rue">
               <h5><label for="numeroRue">Numéro de maison: </label></h5>
-              <input type="text" class="form-control" name="numeroRue" [(ngModel)]="patient.adresse.numeroRue">              
+              <input type="text" class="form-control" name="numeroRue" [(ngModel)]="patient.adresse.numeroRue">
               <h5><label for="boitePostal">Boîte postal: </label></h5>
-              <input type="text" class="form-control" name="boitePsotal" [(ngModel)]="patient.adresse.boitePostal"> 
+              <input type="text" class="form-control" name="boitePsotal" [(ngModel)]="patient.adresse.boitePostal">
               <h5><label for="ville">Ville: </label></h5>
-              <input type="text" class="form-control" name="ville" [(ngModel)]="patient.adresse.ville">  
+              <input type="text" class="form-control" name="ville" [(ngModel)]="patient.adresse.ville">
               <h5><label for="pays">Pays: </label></h5>
               <input type="text" class="form-control" name="pays" [(ngModel)]="patient.adresse.pays">
       </tab>
@@ -97,8 +97,8 @@
       </tab>
       <tab heading="Commentaire">
             <h5><label for="commentaire">Commentaire: </label></h5>
-            <textarea name="commentaire" rows="10" class="form-control" [(ngModel)]="patient.commentaire"></textarea>                                                                                                                                                               
-      </tab>             
+            <textarea name="commentaire" rows="10" class="form-control" [(ngModel)]="patient.commentaire"></textarea>
+      </tab>
       <tab heading="Changer de photo">
         <p>changement de photo</p>
       </tab>

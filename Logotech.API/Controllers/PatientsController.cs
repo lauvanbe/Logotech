@@ -64,7 +64,7 @@ namespace Logotech.API.Controllers
             patientFromRepo.Adresse.Ville = patientForUpdateDto.Adresse.Ville;
             patientFromRepo.Adresse.Pays = patientForUpdateDto.Adresse.Pays;
 
-            // _mapper.Map(patientForUpdateDto, patientFromRepo);
+            _mapper.Map(patientForUpdateDto, patientFromRepo);
 
             if (await _repo.SaveAll())
              return NoContent();

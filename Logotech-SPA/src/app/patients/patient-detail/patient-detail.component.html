@@ -11,8 +11,8 @@
             <strong>Données personnelles:</strong>
             <ul>
               <li>Nom: {{ patient.nom}}</li>
-              <li>Prénom: {{ patient.prenom }}</li>  
-              <li>Date de naissance: {{ patient.dateNaissance }}</li>
+              <li>Prénom: {{ patient.prenom }}</li>
+              <li>Date de naissance: {{ patient.dateNaissance | date: 'dd/MM/yyyy'}} </li>
               <li>Email: {{ patient.email}}</li>
               <li>Téléphone fixe: {{ patient.telFixe }}</li>
               <li>Gsm: {{ patient.gsm }}</li>
@@ -27,13 +27,13 @@
             <ul>
               <li>Nom: {{ patient.personneContact }}</li>
               <li>Téléphone: {{ patient.telContact }}</li>
-            </ul> 
-          </div> 
+            </ul>
+          </div>
           <div>
             <strong>Adresse:</strong>
             <ul>
               <li>Rue: {{ patient.adresse.rue}}, {{ patient.adresse.numeroRue}}</li>
-              <li>Boite postal: {{ patient.adresse.boitePostal}}</li>  
+              <li>Boite postal: {{ patient.adresse.boitePostal}}</li>
               <li>Ville: {{ patient.adresse.codePostal }}, {{ patient.adresse.ville }}</li>
               <li>Pays: {{ patient.adresse.pays}}</li>
             </ul>

@@ -27,7 +27,7 @@
           </div>
           <div>
             <strong>Latéralité:</strong>
-            <p>{{ patient.lateralite.nom }}</p>
+            <p>{{ patient.lateralite }}</p>
           </div>
           <div>
             <strong>Personne de contact:</strong>
@@ -71,7 +71,7 @@
       </tab>
       <tab heading="Latéralité">
               <h5><label for="lateralite">Latéralité: </label></h5>
-              <input type="text" class="form-control" name="lateralite" [(ngModel)]="patient.lateralite.nom">
+              <input type="text" class="form-control" name="lateralite" [(ngModel)]="patient.lateralite">
       </tab>
       <tab heading="Contact">
               <h5><label for="personneContact">Nom: </label></h5>

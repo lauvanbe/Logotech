@@ -7,13 +7,14 @@ export interface Patient {
     prenom: string;
     dateNaissance: Date;
     email: string;
-    telFixe: number;
-    gsm: number;
     personneContact: string;
-    telContact: number;
     anamnese: string;
     lateralite: string;
     commentaire: string;
     adresse: Adresse;
-    photo: Photo;
+    photoUrl: string;
+    telContact?: number;
+    telFixe?: number;
+    gsm?: number;
+    photos?: Photo[];
 }

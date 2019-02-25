@@ -1,7 +1,29 @@
 <div class="container mt-5">
   <div class="row">
-    <div *ngFor="let praticien of praticiens" class="col-lg-2 col-md-3 col-sm-6">
-      <app-praticien-card [praticien]="praticien"></app-praticien-card>  
-    </div>  
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Numéro Inami</th>
+          <th scope="col">Nom</th>
+          <th scope="col">Prénom</th>
+          <th scope="col">Email</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let praticien of praticiens">
+          <tr class="table-info">
+            <th scope="row">{{ praticien.inami }}</th>
+            <td>{{ praticien.nom }}</td>
+            <td>{{ praticien.prenom }}</td>
+            <td>{{ praticien.email }}</td>
+            <td><button class="btn btn-warning btn-sm">Editer</button></td>
+            <td><button class="btn btn-danger btn-sm">Supprimer</button></td>
+          </tr>
+      </tbody>
+    </table>
   </div>
 </div>
+
+
+
+
+

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Praticien } from '../../_models/praticien';
+import { Docteur } from '../../_models/docteur';
 import { PraticienService } from '../../_services/praticien.service';
 import { AlertifyService } from '../../_services/alertify.service';
 import { ActivatedRoute } from '@angular/router';
@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./liste-praticiens.component.css']
 })
 export class ListePraticiensComponent implements OnInit {
-  praticiens: Praticien[];
+  praticiens: Docteur[];
   praticien: string;
 
   constructor(private praticienService: PraticienService, private alertify: AlertifyService, private route: ActivatedRoute) { }

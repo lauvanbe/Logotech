@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Praticien } from '../_models/praticien';
+import { Docteur } from '../_models/docteur';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +12,11 @@ export class PraticienService {
 
   constructor(private http: HttpClient) { }
 
-  getPraticiens(): Observable<Praticien[]> {
-    return this.http.get<Praticien[]>(this.baseUrl + 'praticiens');
+  getDocteurs(): Observable<Docteur[]> {
+    return this.http.get<Docteur[]>(this.baseUrl + 'docteurs');
   }
 
-  getPraticien(id): Observable<Praticien> {
-    return this.http.get<Praticien>(this.baseUrl + 'praticiens/' + id);
+  getDocteur(id): Observable<Docteur> {
+    return this.http.get<Docteur>(this.baseUrl + 'docteurs/' + id);
   }
 }

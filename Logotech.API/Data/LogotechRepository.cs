@@ -38,14 +38,14 @@ namespace Logotech.API.Data
 
         public async Task<Patient> GetPatient(int id)
         {
-            var patient = await _context.Patients.Include(a => a.Adresse).FirstOrDefaultAsync(p => p.Id == id);
+            var patient = await _context.Patients.Include(a => a.Adresse).Include(p => p.Photos).FirstOrDefaultAsync(p => p.Id == id);
 
             return patient;
         }
 
         public async Task<IEnumerable<Patient>> GetPatients()
         {
-            var patients = await _context.Patients.ToListAsync();
+            var patients = await _context.Patients.Include(p => p.Photos).ToListAsync();
 
             return patients;
         }

@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using Logotech.API.Models;
 
 namespace Logotech.API.Dtos
 {
@@ -16,5 +18,6 @@ namespace Logotech.API.Dtos
         public string Anamnese { get; set; }
         public string Lateralite { get; set; }
         public string Commentaire { get; set; }
+        public string PhotoUrl { get; set; }
     }
 }

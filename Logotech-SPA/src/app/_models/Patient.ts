@@ -1,5 +1,5 @@
 import { Adresse } from './adresse';
-import { Lateralite } from './Lateralite';
+import { Photo } from './photo';
 
 export interface Patient {
     id: number;
@@ -12,7 +12,8 @@ export interface Patient {
     personneContact: string;
     telContact: number;
     anamnese: string;
+    lateralite: string;
     commentaire: string;
     adresse: Adresse;
-    lateralite: Lateralite;
+    photo: Photo;
 }

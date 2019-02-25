@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Praticien } from 'src/app/_models/praticien';
+import { Docteur } from 'src/app/_models/docteur';
 import { PraticienService } from 'src/app/_services/praticien.service';
 import { AlertifyService } from 'src/app/_services/alertify.service';
 import { ActivatedRoute } from '@angular/router';
@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./praticien-detail.component.css']
 })
 export class PraticienDetailComponent implements OnInit {
-  praticien: Praticien;
+  praticien: Docteur;
 
   constructor(private praticienService: PraticienService, private alertify: AlertifyService,
     private route: ActivatedRoute) { }

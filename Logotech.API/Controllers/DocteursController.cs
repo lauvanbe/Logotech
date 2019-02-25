@@ -11,11 +11,11 @@ namespace Logotech.API.Controllers
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    public class PraticiensController : ControllerBase
+    public class DocteursController : ControllerBase
     {
         private readonly ILogotechRepository _repo;
         private readonly IMapper _mapper;
-        public PraticiensController(ILogotechRepository repo, IMapper mapper)
+        public DocteursController(ILogotechRepository repo, IMapper mapper)
         {
             _mapper = mapper;
             _repo = repo;
@@ -24,21 +24,21 @@ namespace Logotech.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetDocteurs()
         {
-            var praticiens = await _repo.GetDocteurs();
+            var docteurs = await _repo.GetDocteurs();
 
-            var praticiensToReturn = _mapper.Map<IEnumerable<DocteurForListDto>>(praticiens);
+            var docteursToReturn = _mapper.Map<IEnumerable<DocteurForListDto>>(docteurs);
 
-            return Ok(praticiensToReturn);
+            return Ok(docteursToReturn);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetDocteur(int id)
         {
-            var praticien = await _repo.GetDocteur(id);
+            var docteur = await _repo.GetDocteur(id);
 
-            var praticienToReturn = _mapper.Map<DocteurForDetailDto>(praticien);
+            var docteurToReturn = _mapper.Map<DocteurForDetailDto>(docteur);
 
-            return Ok(praticienToReturn);
+            return Ok(docteurToReturn);
         }
     }
 }

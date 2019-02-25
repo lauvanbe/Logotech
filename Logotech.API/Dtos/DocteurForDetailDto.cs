@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Logotech.API.Models;
 
 namespace Logotech.API.Dtos
@@ -11,7 +12,6 @@ namespace Logotech.API.Dtos
         public string Email { get; set; }
         public int TelFixe { get; set; }
         public int Gsm { get; set; }
-        public bool Deplacement { get; set; }
         public Adresse Adresse { get; set; }
         public string Specialisation { get; set; }
         public string Fonction { get; set; }

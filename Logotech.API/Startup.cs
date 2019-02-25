@@ -36,9 +36,12 @@ namespace Logotech.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DataContext>(x => x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+                .AddJsonOptions(opt => {
+                    opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+                });
             services.AddCors();
-            // services.AddAutoMapper();
+            services.AddAutoMapper();
             services.AddTransient<Seed>();
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<ILogotechRepository, LogotechRepository>();
@@ -82,9 +85,9 @@ namespace Logotech.API
 
             // app.UseHttpsRedirection();
             // seeder.SeedAdresse();
-            seeder.SeedUsers();
-            seeder.SeedDocteur();
-            seeder.SeedPatient();
+            // seeder.SeedUsers();
+            // seeder.SeedDocteur();
+            // seeder.SeedPatient();
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseAuthentication();
             app.UseMvc();

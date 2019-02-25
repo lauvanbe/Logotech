@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Logotech.API.Models;
 
 namespace Logotech.API.Dtos
@@ -18,5 +19,7 @@ namespace Logotech.API.Dtos
         public String Lateralite { get; set; }
         public string Commentaire { get; set; }
         public Adresse Adresse { get; set; }
+        public string PhotoUrl { get; set; }
+        public ICollection<PhotoForDetailDto> Photos { get; set; }
     }
 }

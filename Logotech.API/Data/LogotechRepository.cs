@@ -22,23 +22,23 @@ namespace Logotech.API.Data
             _context.Remove(entity);
         }
 
-        public async Task<Praticien> GetPraticien(int id)
+        public async Task<Docteur> GetDocteur(int id)
         {
-            var praticien = await _context.Praticiens.Include(a => a.Adresse).Include(s => s.Specialisation).Include(f => f.Fonction).FirstOrDefaultAsync(p => p.Id == id);
+            var praticien = await _context.Docteurs.Include(a => a.Adresse).FirstOrDefaultAsync(p => p.Id == id);
 
             return praticien;
         }
 
-        public async Task<IEnumerable<Praticien>> GetPraticiens()
+        public async Task<IEnumerable<Docteur>> GetDocteurs()
         {
-            var praticiens = await _context.Praticiens.ToListAsync();
+            var praticiens = await _context.Docteurs.ToListAsync();
 
             return praticiens;
         }
 
         public async Task<Patient> GetPatient(int id)
         {
-            var patient = await _context.Patients.Include(a => a.Adresse).Include(s => s.Lateralite).FirstOrDefaultAsync(p => p.Id == id);
+            var patient = await _context.Patients.Include(a => a.Adresse).FirstOrDefaultAsync(p => p.Id == id);
 
             return patient;
         }
@@ -49,7 +49,7 @@ namespace Logotech.API.Data
 
             return patients;
         }
-
+  
         public async Task<bool> SaveAll()
         {
             return await _context.SaveChangesAsync() > 0;

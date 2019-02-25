@@ -25,7 +25,7 @@ namespace Logotech.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetValues()
         {
-            var values = await _context.Praticiens.ToListAsync();
+            var values = await _context.Docteurs.ToListAsync();
 
             return Ok(values);
         }
@@ -35,7 +35,7 @@ namespace Logotech.API.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetValue(int id)
         {
-            var value = await _context.Praticiens.FirstOrDefaultAsync(x => x.Id == id);
+            var value = await _context.Docteurs.FirstOrDefaultAsync(x => x.Id == id);
 
             return Ok(value);
         }

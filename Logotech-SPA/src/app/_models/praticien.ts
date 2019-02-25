@@ -11,7 +11,6 @@ export interface Praticien {
     telFixe: number;
     gsm: number;
     deplacement: boolean;
-    photoUrl: string;
     adresse: Adresse;
     fonction: Fonction;
     specialisation: Specialisation;

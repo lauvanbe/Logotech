@@ -8,8 +8,8 @@ namespace Logotech.API.Helpers
     {
         public AutoMapperProfiles()
         {
-            CreateMap<Praticien, PraticienForListDto>();
-            CreateMap<Praticien, PraticienForDetailDto>();
+            CreateMap<Docteur, DocteurForListDto>();
+            CreateMap<Docteur, DocteurForDetailDto>();
 
             CreateMap<Patient, PatientForListDto>();
             CreateMap<Patient, PatientForDetailDto>();

@@ -49,20 +49,16 @@ namespace Logotech.API.Models
         [Display(Name = "Anamnèse")]
         public string Anamnese { get; set; }
 
+        [Required(ErrorMessage = "Latéralité requise.")]
+        [StringLength(15)]
+        public string Lateralite { get; set; }
+
         [StringLength(250)]
         [Display(Name = "Commentaire")]
         public string Commentaire { get; set; }
 
-        public string PhotoUrl { get; set; }
-
         public Adresse Adresse { get; set; }
 
-        [ForeignKey("Adresse")]
-        public int AdresseId { get; set; }
-
-        public Lateralite Lateralite { get; set; }
-
-        [ForeignKey("Lateralite")]
-        public int LateraliteId { get; set; }  
+        public ICollection<Photo> Photos { get; set; }
     }
 }

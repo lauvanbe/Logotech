@@ -1,6 +1,6 @@
 namespace Logotech.API.Dtos
 {
-    public class PraticienForListDto
+    public class DocteurForListDto
     {
         public int Id { get; set; }
         public int Inami { get; set; }
@@ -9,7 +9,6 @@ namespace Logotech.API.Dtos
         public string Email { get; set; }
         public int TelFixe { get; set; }
         public int Gsm { get; set; }
-        public bool Deplacement { get; set; }    
-        public string PhotoUrl { get; set; }    
+        public bool Deplacement { get; set; }  
     }
 }

@@ -22,21 +22,21 @@ namespace Logotech.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetPraticiens()
+        public async Task<IActionResult> GetDocteurs()
         {
-            var praticiens = await _repo.GetPraticiens();
+            var praticiens = await _repo.GetDocteurs();
 
-            var praticiensToReturn = _mapper.Map<IEnumerable<PraticienForListDto>>(praticiens);
+            var praticiensToReturn = _mapper.Map<IEnumerable<DocteurForListDto>>(praticiens);
 
             return Ok(praticiensToReturn);
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetPraticien(int id)
+        public async Task<IActionResult> GetDocteur(int id)
         {
-            var praticien = await _repo.GetPraticien(id);
+            var praticien = await _repo.GetDocteur(id);
 
-            var praticienToReturn = _mapper.Map<PraticienForDetailDto>(praticien);
+            var praticienToReturn = _mapper.Map<DocteurForDetailDto>(praticien);
 
             return Ok(praticienToReturn);
         }

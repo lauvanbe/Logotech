@@ -13,7 +13,6 @@ export interface Patient {
     telContact: number;
     anamnese: string;
     commentaire: string;
-    photoUrl: string;
     adresse: Adresse;
     lateralite: Lateralite;
 }

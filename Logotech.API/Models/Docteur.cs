@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Logotech.API.Models
 {
-    public class Praticien
+    public class Docteur
     {
         public int Id { get; set; }
 
@@ -30,30 +30,20 @@ namespace Logotech.API.Models
         public string Email { get; set; }
 
         [Display(Name = "Téléphone fixe")]
-        public int TelFixe { get; set; }
+        public int? TelFixe { get; set; }
 
         [Display(Name = "Gsm")]
-        public int Gsm { get; set; }
+        public int? Gsm { get; set; }
 
-        [Required(ErrorMessage = "Veuillez spécifier si les déplacements sont possible.")]
-        [Display(Name = "Visites à domicile")]
-        public bool Deplacement { get; set; }
+        [Display(Name = "Specialisation")]
+        [StringLength(55)]
+        public string Specialisation { get; set; }   
 
-        public string PhotoUrl { get; set; }
+        [Display(Name = "Fonction")]
+        [StringLength(55)]
+        public string Fonction { get; set; }             
 
         public Adresse Adresse { get; set; }
 
-        [ForeignKey("Adresse")]
-        public int AdresseId { get; set; }
-
-        public Specialisation Specialisation { get; set; }
-
-        [ForeignKey("Specialisation")]
-        public int SpecialisationId { get; set; }
-
-        public Fonction Fonction { get; set; }
-
-        [ForeignKey("Fonction")]
-        public int FonctionId { get; set; } 
     }
 }

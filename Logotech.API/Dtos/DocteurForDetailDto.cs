@@ -2,7 +2,7 @@ using Logotech.API.Models;
 
 namespace Logotech.API.Dtos
 {
-    public class PraticienForDetailDto
+    public class DocteurForDetailDto
     {
         public int Id { get; set; }
         public int Inami { get; set; }
@@ -12,9 +12,8 @@ namespace Logotech.API.Dtos
         public int TelFixe { get; set; }
         public int Gsm { get; set; }
         public bool Deplacement { get; set; }
-        public string PhotoUrl { get; set; }
         public Adresse Adresse { get; set; }
-        public Specialisation Specialisation { get; set; }
-        public Fonction Fonction { get; set; }
+        public string Specialisation { get; set; }
+        public string Fonction { get; set; }
     }
 }

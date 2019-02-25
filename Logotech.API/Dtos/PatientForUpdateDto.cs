@@ -14,9 +14,9 @@ namespace Logotech.API.Dtos
         public string PersonneContact { get; set; }
         public int TelContact { get; set; }
         public string Anamnese { get; set; }
+        public string Lateralite { get; set; }
         public string Commentaire { get; set; }
-        public string PhotoUrl { get; set; }
         public Adresse Adresse { get; set; }
-        public Lateralite Lateralite { get; set; }
+
     }
 }

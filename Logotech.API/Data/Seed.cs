@@ -11,62 +11,54 @@ namespace Logotech.API.Data
         {
             _context = context;
         }
-        
-        public void SeedLateralite()
+
+        // public void SeedAdresse()
+        // {
+        //     var adresseData = System.IO.File.ReadAllText("Data/SeedDataAdresse.json");
+        //     var adresses = JsonConvert.DeserializeObject<List<Adresse>>(adresseData);
+        //     foreach (var adresse in adresses)
+        //     {
+        //         _context.Adresses.Add(adresse);
+        //     }
+            
+        //     _context.SaveChanges();
+        // }
+
+        public void SeedUsers()
         {
-            var lateraliteData = System.IO.File.ReadAllText("Data/SeedDataLateralite.json");
-            var lateralites = JsonConvert.DeserializeObject<List<Lateralite>>(lateraliteData);
-            foreach (var lateralite in lateralites)
+            var userData = System.IO.File.ReadAllText("Data/SeedDataUser.json");
+            var users = JsonConvert.DeserializeObject<List<User>>(userData);
+            foreach (var user in users)
             {
-                _context.Lateralites.Add(lateralite);
+                byte [] passwordHash, passwordSalt;
+                CreatePasswordHash("password", out passwordHash, out passwordSalt);
+
+                user.PasswordHash = passwordHash;
+                user.PasswordSalt = passwordSalt;
+                user.Username = user.Username.ToLower();
+                
+                _context.Users.Add(user);
             }
             
             _context.SaveChanges();
         }
 
-        public void SeedFonction()
+        private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
         {
-            var fonctionData = System.IO.File.ReadAllText("Data/SeedDataFonction.json");
-            var fonctions = JsonConvert.DeserializeObject<List<Fonction>>(fonctionData);
-            foreach (var fonction in fonctions)
+            using(var hmac = new System.Security.Cryptography.HMACSHA512())
             {
-                _context.Fonctions.Add(fonction);
+                passwordSalt = hmac.Key;
+                passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
             }
             
-            _context.SaveChanges();
         }
-
-        public void SeedSpecialisation()
+        public void SeedDocteur()
         {
-            var specialisationData = System.IO.File.ReadAllText("Data/SeedDataSpecialisation.json");
-            var specialisations = JsonConvert.DeserializeObject<List<Specialisation>>(specialisationData);
-            foreach (var specialisation in specialisations)
+            var docteurData = System.IO.File.ReadAllText("Data/SeedDataDocteur.json");
+            var docteurs = JsonConvert.DeserializeObject<List<Docteur>>(docteurData);
+            foreach (var docteur in docteurs)
             {
-                _context.Specialisations.Add(specialisation);
-            }
-            
-            _context.SaveChanges();
-        }
-
-        public void SeedAdresse()
-        {
-            var adresseData = System.IO.File.ReadAllText("Data/SeedDataAdresse.json");
-            var adresses = JsonConvert.DeserializeObject<List<Adresse>>(adresseData);
-            foreach (var adresse in adresses)
-            {
-                _context.Adresses.Add(adresse);
-            }
-            
-            _context.SaveChanges();
-        }
-
-        public void SeedPraticien()
-        {
-            var praticienData = System.IO.File.ReadAllText("Data/SeedDataPraticien.json");
-            var praticiens = JsonConvert.DeserializeObject<List<Praticien>>(praticienData);
-            foreach (var praticien in praticiens)
-            {
-                _context.Praticiens.Add(praticien);
+                _context.Docteurs.Add(docteur);
             }
             
             _context.SaveChanges();

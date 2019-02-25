@@ -45,7 +45,7 @@ namespace Logotech.API.Controllers
         [HttpPut("edit/{id}")]
         public async Task<IActionResult> UpdatePatient(int id, PatientForUpdateDto patientForUpdateDto)
         {
-            var patientFromRepo = await _repo.GetPatient(id);
+             var patientFromRepo = await _repo.GetPatient(id);
 
             patientFromRepo.Nom = patientForUpdateDto.Nom;
             patientFromRepo.Prenom = patientForUpdateDto.Prenom;
@@ -53,7 +53,7 @@ namespace Logotech.API.Controllers
             patientFromRepo.Email = patientForUpdateDto.Email;
             patientFromRepo.TelFixe = patientForUpdateDto.TelFixe;
             patientFromRepo.Gsm = patientForUpdateDto.Gsm;
-            patientFromRepo.Lateralite.nom = patientForUpdateDto.Lateralite.nom;
+            patientFromRepo.Lateralite = patientForUpdateDto.Lateralite;
             patientFromRepo.PersonneContact = patientForUpdateDto.PersonneContact;
             patientFromRepo.TelContact = patientForUpdateDto.TelContact; 
             patientFromRepo.Anamnese = patientForUpdateDto.Anamnese;
@@ -64,8 +64,9 @@ namespace Logotech.API.Controllers
             patientFromRepo.Adresse.Ville = patientForUpdateDto.Adresse.Ville;
             patientFromRepo.Adresse.Pays = patientForUpdateDto.Adresse.Pays;
 
-            _mapper.Map(patientForUpdateDto, patientFromRepo);
+            // _mapper.Map(patientForUpdateDto, patientFromRepo);
 
+            
             if (await _repo.SaveAll())
              return NoContent();
 

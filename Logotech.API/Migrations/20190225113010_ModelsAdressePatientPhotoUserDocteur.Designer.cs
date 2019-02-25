@@ -9,14 +9,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Logotech.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20190207102200_CorrectionsModels")]
-    partial class CorrectionsModels
+    [Migration("20190225113010_ModelsAdressePatientPhotoUserDocteur")]
+    partial class ModelsAdressePatientPhotoUserDocteur
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.0-rtm-35687");
+                .HasAnnotation("ProductVersion", "2.2.1-servicing-10028");
 
             modelBuilder.Entity("Logotech.API.Models.Adresse", b =>
                 {
@@ -46,32 +46,41 @@ namespace Logotech.API.Migrations
                     b.ToTable("Adresses");
                 });
 
-            modelBuilder.Entity("Logotech.API.Models.Fonction", b =>
+            modelBuilder.Entity("Logotech.API.Models.Docteur", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<int?>("AdresseId");
+
+                    b.Property<string>("Email")
+                        .IsRequired();
+
+                    b.Property<string>("Fonction")
+                        .HasMaxLength(55);
+
+                    b.Property<int?>("Gsm");
+
+                    b.Property<int>("Inami");
 
                     b.Property<string>("Nom")
                         .IsRequired()
                         .HasMaxLength(55);
 
-                    b.HasKey("Id");
-
-                    b.ToTable("Fonctions");
-                });
-
-            modelBuilder.Entity("Logotech.API.Models.Lateralite", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("nom")
+                    b.Property<string>("Prenom")
                         .IsRequired()
                         .HasMaxLength(55);
 
+                    b.Property<string>("Specialisation")
+                        .HasMaxLength(55);
+
+                    b.Property<int?>("TelFixe");
+
                     b.HasKey("Id");
 
-                    b.ToTable("Lateralites");
+                    b.HasIndex("AdresseId");
+
+                    b.ToTable("Docteurs");
                 });
 
             modelBuilder.Entity("Logotech.API.Models.Patient", b =>
@@ -79,7 +88,7 @@ namespace Logotech.API.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("AdresseId");
+                    b.Property<int?>("AdresseId");
 
                     b.Property<string>("Anamnese")
                         .IsRequired()
@@ -95,7 +104,9 @@ namespace Logotech.API.Migrations
 
                     b.Property<int?>("Gsm");
 
-                    b.Property<int>("LateraliteId");
+                    b.Property<string>("Lateralite")
+                        .IsRequired()
+                        .HasMaxLength(15);
 
                     b.Property<string>("Nom")
                         .IsRequired()
@@ -103,8 +114,6 @@ namespace Logotech.API.Migrations
 
                     b.Property<string>("PersonneContact")
                         .HasMaxLength(55);
-
-                    b.Property<string>("PhotoUrl");
 
                     b.Property<string>("Prenom")
                         .IsRequired()
@@ -118,66 +127,29 @@ namespace Logotech.API.Migrations
 
                     b.HasIndex("AdresseId");
 
-                    b.HasIndex("LateraliteId");
-
                     b.ToTable("Patients");
                 });
 
-            modelBuilder.Entity("Logotech.API.Models.Praticien", b =>
+            modelBuilder.Entity("Logotech.API.Models.Photo", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("AdresseId");
+                    b.Property<DateTime>("DateAdded");
 
-                    b.Property<bool>("Deplacement");
+                    b.Property<string>("Description");
 
-                    b.Property<string>("Email")
-                        .IsRequired();
+                    b.Property<bool>("IsMain");
 
-                    b.Property<int>("FonctionId");
+                    b.Property<int>("PatientId");
 
-                    b.Property<int>("Gsm");
-
-                    b.Property<int>("Inami");
-
-                    b.Property<string>("Nom")
-                        .IsRequired()
-                        .HasMaxLength(55);
-
-                    b.Property<string>("PhotoUrl");
-
-                    b.Property<string>("Prenom")
-                        .IsRequired()
-                        .HasMaxLength(55);
-
-                    b.Property<int>("SpecialisationId");
-
-                    b.Property<int>("TelFixe");
+                    b.Property<string>("Url");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AdresseId");
+                    b.HasIndex("PatientId");
 
-                    b.HasIndex("FonctionId");
-
-                    b.HasIndex("SpecialisationId");
-
-                    b.ToTable("Praticiens");
-                });
-
-            modelBuilder.Entity("Logotech.API.Models.Specialisation", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Nom")
-                        .IsRequired()
-                        .HasMaxLength(55);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Specialisations");
+                    b.ToTable("Photos");
                 });
 
             modelBuilder.Entity("Logotech.API.Models.User", b =>
@@ -185,46 +157,67 @@ namespace Logotech.API.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int?>("AdresseId");
+
+                    b.Property<bool>("Deplacement");
+
+                    b.Property<string>("Email")
+                        .IsRequired();
+
+                    b.Property<int?>("Gsm");
+
+                    b.Property<int>("Inami");
+
+                    b.Property<string>("Nom")
+                        .IsRequired()
+                        .HasMaxLength(55);
+
                     b.Property<byte[]>("PasswordHash");
 
                     b.Property<byte[]>("PasswordSalt");
+
+                    b.Property<string>("Prenom")
+                        .IsRequired()
+                        .HasMaxLength(55);
+
+                    b.Property<int?>("TelFixe");
 
                     b.Property<string>("Username");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("AdresseId");
+
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("Logotech.API.Models.Docteur", b =>
+                {
+                    b.HasOne("Logotech.API.Models.Adresse", "Adresse")
+                        .WithMany()
+                        .HasForeignKey("AdresseId");
                 });
 
             modelBuilder.Entity("Logotech.API.Models.Patient", b =>
                 {
                     b.HasOne("Logotech.API.Models.Adresse", "Adresse")
                         .WithMany()
-                        .HasForeignKey("AdresseId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("AdresseId");
+                });
 
-                    b.HasOne("Logotech.API.Models.Lateralite", "Lateralite")
-                        .WithMany()
-                        .HasForeignKey("LateraliteId")
+            modelBuilder.Entity("Logotech.API.Models.Photo", b =>
+                {
+                    b.HasOne("Logotech.API.Models.Patient", "Patient")
+                        .WithMany("Photos")
+                        .HasForeignKey("PatientId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Logotech.API.Models.Praticien", b =>
+            modelBuilder.Entity("Logotech.API.Models.User", b =>
                 {
                     b.HasOne("Logotech.API.Models.Adresse", "Adresse")
                         .WithMany()
-                        .HasForeignKey("AdresseId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("Logotech.API.Models.Fonction", "Fonction")
-                        .WithMany()
-                        .HasForeignKey("FonctionId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("Logotech.API.Models.Specialisation", "Specialisation")
-                        .WithMany()
-                        .HasForeignKey("SpecialisationId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("AdresseId");
                 });
 #pragma warning restore 612, 618
         }

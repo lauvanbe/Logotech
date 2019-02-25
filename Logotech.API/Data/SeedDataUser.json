@@ -1,0 +1,97 @@
+[
+    {
+      "Username": "Terry",
+      "Password": "password",
+      "Inami": 2617,
+      "Nom": "Henson",
+      "Prenom": "Terry",
+      "Email": "terryhenson@comtrail.com",
+      "TelFixe": 66787632,
+      "Gsm": 887705722,
+      "Deplacement": true,
+      "Adresse": {
+        "Rue": "Blake Avenue",
+        "NumeroRue": 7462,
+        "BoitePostal": 2,
+        "CodePostal": 6200,
+        "Ville": "Terlingua",
+        "Pays": "Belgium"
+      }
+    },
+    {
+      "Username": "Selena",
+      "Password": "password",
+      "Inami": 4334,
+      "Nom": "Fernandez",
+      "Prenom": "Selena",
+      "Email": "selenafernandez@comtrail.com",
+      "TelFixe": 67620079,
+      "Gsm": 750240585,
+      "Deplacement": true,
+      "Adresse": {
+        "Rue": "Dennett Place",
+        "NumeroRue": 1475,
+        "BoitePostal": 17,
+        "CodePostal": 6982,
+        "Ville": "Linganore",
+        "Pays": "Belgium"
+      }
+    },
+    {
+      "Username": "Carole",
+      "Password": "password",
+      "Inami": 3130,
+      "Nom": "Hunt",
+      "Prenom": "Carole",
+      "Email": "carolehunt@comtrail.com",
+      "TelFixe": 50472445,
+      "Gsm": 672838476,
+      "Deplacement": false,
+      "Adresse": {
+        "Rue": "Ludlam Place",
+        "NumeroRue": 6246,
+        "BoitePostal": 4,
+        "CodePostal": 3389,
+        "Ville": "Ryderwood",
+        "Pays": "Belgium"
+      }
+    },
+    {
+      "Username": "Beryl",
+      "Password": "password",
+      "Inami": 7762,
+      "Nom": "Harrison",
+      "Prenom": "Beryl",
+      "Email": "berylharrison@comtrail.com",
+      "TelFixe": 38653318,
+      "Gsm": 703195692,
+      "Deplacement": true,
+      "Adresse": {
+        "Rue": "Robert Street",
+        "NumeroRue": 1603,
+        "BoitePostal": 12,
+        "CodePostal": 2854,
+        "Ville": "Lloyd",
+        "Pays": "Belgium"
+      }
+    },
+    {
+      "Username": "Marietta",
+      "Password": "password",
+      "Inami": 3937,
+      "Nom": "Todd",
+      "Prenom": "Marietta",
+      "Email": "mariettatodd@comtrail.com",
+      "TelFixe": 23127613,
+      "Gsm": 389447009,
+      "Deplacement": false,
+      "Adresse": {
+        "Rue": "Wythe Place",
+        "NumeroRue": 4649,
+        "BoitePostal": 5,
+        "CodePostal": 9479,
+        "Ville": "Dawn",
+        "Pays": "Belgium"
+      }
+    }
+  ]

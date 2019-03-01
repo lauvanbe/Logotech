@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Patient } from 'src/app/_models/Patient';
-import { AlertPromise } from 'selenium-webdriver';
 import { AlertifyService } from 'src/app/_services/alertify.service';
 import { NgForm } from '@angular/forms';
 import { PatientService } from 'src/app/_services/patient.service';

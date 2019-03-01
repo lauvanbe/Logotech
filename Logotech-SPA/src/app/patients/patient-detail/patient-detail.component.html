@@ -1,6 +1,6 @@
 <div class="container mt-4">
   <div class="row">
-      <h1>Profil de {{ patient.prenom }} {{ patient.nom }}</h1>
+      <h1>Patient: {{ patient.prenom }} {{ patient.nom }}</h1>
   </div>
   <div class="row">
     <div class="col-sm-4">
@@ -51,6 +51,9 @@
       <tab heading="Commentaires">
         <h4>Commentaires</h4>
         <p>{{ patient.commentaire }}</p>
+      </tab>
+      <tab heading="Photos">
+        <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
       </tab>
       </tabset>
     </div>

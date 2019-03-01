@@ -13,6 +13,7 @@ namespace Logotech.API.Data
         Task<Docteur> GetDocteur(int id);
         Task<IEnumerable<Patient>> GetPatients();
         Task<Patient> GetPatient(int id);
+        Task<Photo> GetPhoto(int id);
 
     }
 }

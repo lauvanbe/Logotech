@@ -23,6 +23,9 @@ namespace Logotech.API.Helpers
             CreateMap<PatientForUpdateDto, Patient>();
 
             CreateMap<Photo, PhotoForDetailDto>();
+
+            CreateMap<Photo, PhotoForReturnDto>();
+            CreateMap<PhotoForCreationDto, Photo>();
         }
     }
 }

@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { BsDropdownModule, TabsModule } from 'ngx-bootstrap';
 import { RouterModule } from '@angular/router';
 import { JwtModule } from '@auth0/angular-jwt';
+import { NgxGalleryModule } from 'ngx-gallery';
+import { FileUploadModule } from 'ng2-file-upload';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -31,6 +33,8 @@ import { AgendaComponent } from './agenda/agenda.component';
 import { PatientEditComponent } from './patients/patient-edit/patient-edit.component';
 import { PatientEditResolver } from './_resolvers/patient-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
+import { PhotoEditorComponent } from './patients/photo-editor/photo-editor.component';
+
 
 
 
@@ -51,12 +55,15 @@ export function tokenGetter() {
       ListePraticiensComponent,
       PraticienCardComponent,
       PraticienDetailComponent,
-      AgendaComponent
+      AgendaComponent,
+      PhotoEditorComponent
    ],
    imports: [
       BrowserModule,
       HttpClientModule,
       FormsModule,
+      NgxGalleryModule,
+      FileUploadModule,
       BsDropdownModule.forRoot(),
       TabsModule.forRoot(),
       RouterModule.forRoot(appRoutes),

@@ -45,7 +45,7 @@ namespace Logotech.API.Controllers
         [HttpPut("edit/{id}")]
         public async Task<IActionResult> UpdatePatient(int id, PatientForUpdateDto patientForUpdateDto)
         {
-             var patientFromRepo = await _repo.GetPatient(id);             
+             var patientFromRepo = await _repo.GetPatient(id);        
              
             _mapper.Map(patientForUpdateDto, patientFromRepo);
 

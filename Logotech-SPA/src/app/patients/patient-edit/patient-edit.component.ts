@@ -38,4 +38,8 @@ export class PatientEditComponent implements OnInit {
 
   }
 
+  updateMainPhoto(photoUrl) {
+    this.patient.photoUrl = photoUrl;
+  }
+
 }

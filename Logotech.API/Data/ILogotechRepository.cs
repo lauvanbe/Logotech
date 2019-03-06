@@ -14,6 +14,7 @@ namespace Logotech.API.Data
         Task<IEnumerable<Patient>> GetPatients();
         Task<Patient> GetPatient(int id);
         Task<Photo> GetPhoto(int id);
+        Task<Photo> GatMainPhotoForPatient(int patientId);
 
     }
 }

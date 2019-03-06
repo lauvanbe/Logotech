@@ -1,10 +1,10 @@
-import { AlertifyService } from './../../_services/alertify.service';
 import { PatientService } from 'src/app/_services/patient.service';
-import { AuthService } from './../../_services/auth.service';
+import { AlertifyService } from './../../_services/alertify.service';
 import { environment } from '../../../environments/environment';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Photo } from 'src/app/_models/photo';
 import { FileUploader } from 'ng2-file-upload';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-photo-editor',
@@ -13,12 +13,13 @@ import { FileUploader } from 'ng2-file-upload';
 })
 export class PhotoEditorComponent implements OnInit {
   @Input() photos: Photo[];
+  @Output() getPatientPhotoChange = new EventEmitter<string>();
   uploader: FileUploader;
   hasBaseDropZoneOver = false;
   baseUrl = environment.apiUrl;
+  currentMain: Photo;
 
-  constructor(private authService: AuthService, private patientService: PatientService,
-    private alertify: AlertifyService) { }
+  constructor(private route: ActivatedRoute, private patientService: PatientService, private alertify: AlertifyService) {  }
 
   ngOnInit() {
     this.initializeUploader();
@@ -29,8 +30,9 @@ export class PhotoEditorComponent implements OnInit {
   }
 
   initializeUploader() {
+    const id: number = this.route.snapshot.params.id;
     this.uploader = new FileUploader({
-      url: this.baseUrl + 'patients/' +  + '/photos', // probleme de recupération de l'id
+      url: this.baseUrl + 'patients/' + id + '/photos',
       isHTML5: true,
       allowedFileType: ['image'],
       removeAfterUpload: true,
@@ -54,5 +56,31 @@ export class PhotoEditorComponent implements OnInit {
 
       }
     };
+  }
+
+  setMainPhoto(photo: Photo) {
+    const idUrl: number = this.route.snapshot.params.id;
+
+    this.patientService.setMainPhoto(idUrl, photo.id).subscribe(() => {
+      this.currentMain = this.photos.filter(p => p.isMain === true)[0];
+      this.currentMain.isMain = false;
+      photo.isMain = true;
+      this.getPatientPhotoChange.emit(photo.url);
+    }, error => {
+      this.alertify.error(error);
+    });
+  }
+
+  deletePhoto(id: number) {
+    const idUrl: number = this.route.snapshot.params.id;
+
+      this.alertify.confirm('Etes vous sur de vouloir supprimer la photo?', () => {
+        this.patientService.deletePhoto(idUrl, id).subscribe(() => {
+          this.photos.splice(this.photos.findIndex(p => p.id === id), 1);
+          this.alertify.success('La photo a bien été supprimée');
+      }, error => {
+        this.alertify.error('Impossible de supprimer la photo');
+      });
+    });
   }
 }

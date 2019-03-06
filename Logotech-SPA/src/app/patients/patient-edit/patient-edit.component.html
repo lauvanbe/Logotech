@@ -101,7 +101,8 @@
       </tab>
       <tab heading="Changer de photo">
         <p>changement de photo</p>
-        <app-photo-editor [photos]="patient.photos"></app-photo-editor>
+        <app-photo-editor [photos]="patient.photos"
+          (getPatientPhotoChange)="updateMainPhoto($event)"></app-photo-editor>
       </tab>
       </tabset>
       </form>

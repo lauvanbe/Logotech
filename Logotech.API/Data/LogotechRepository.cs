@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Logotech.API.Models;
 using Microsoft.EntityFrameworkCore;
@@ -20,6 +21,11 @@ namespace Logotech.API.Data
         public void Delete<T>(T entity) where T : class
         {
             _context.Remove(entity);
+        }
+
+        public async Task<Photo> GatMainPhotoForPatient(int patientId)
+        {
+            return await _context.Photos.Where(p => p.PatientId == patientId).FirstOrDefaultAsync(p => p.IsMain);
         }
 
         public async Task<Docteur> GetDocteur(int id)

@@ -13,7 +13,6 @@ using Microsoft.Extensions.Options;
 
 namespace Logotech.API.Controllers
 {
-    [Authorize]
     [Route("api/patients/{patientId}/photos")]
     [ApiController]
     public class PhotoController : ControllerBase
@@ -89,6 +88,66 @@ namespace Logotech.API.Controllers
             }
 
             return BadRequest("Il n'a pas été possible d'ajouter la photo");
+        }
+
+        [HttpPost("{id}/setMain")]
+        public async Task<IActionResult> SetMainPhoto(int patientId, int id)
+        {
+            var patient = await _repo.GetPatient(patientId);
+
+            if (!patient.Photos.Any(p => p.Id == id))
+                return Unauthorized();
+
+            var photoFromRepo = await _repo.GetPhoto(id);
+
+            if (photoFromRepo.IsMain)
+                return BadRequest("La photo est déjà définie comme photo proncipale");
+
+            var currentMainPhoto = await _repo.GatMainPhotoForPatient(patientId);
+            currentMainPhoto.IsMain = false;
+
+            photoFromRepo.IsMain = true;
+
+            if (await _repo.SaveAll())
+                return NoContent();
+
+            return BadRequest("Pas possible de mettre la photo comme principale");
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeletePhoto(int patientId, int id)
+        {
+            var patient = await _repo.GetPatient(patientId);
+
+            if (!patient.Photos.Any(p => p.Id == id))
+                return Unauthorized();
+
+            var photoFromRepo = await _repo.GetPhoto(id);
+
+            if (photoFromRepo.IsMain)
+                return BadRequest("Vous ne pouvez pas supprimer votre photo proncipale"); 
+
+            if (photoFromRepo.PublicId != null)
+            {
+
+            var deleteParams = new DeletionParams(photoFromRepo.PublicId);  
+
+            var result = _cloudinary.Destroy(deleteParams);
+
+                if (result.Result == "ok") {
+                    _repo.Delete(photoFromRepo);
+                }   
+            } 
+
+            if (photoFromRepo.PublicId == null)
+            {
+                _repo.Delete(photoFromRepo);
+            }
+
+            if (await _repo.SaveAll())
+                return Ok();
+
+            return BadRequest("Suppression de la photo pas possible");
         }
     }
 }

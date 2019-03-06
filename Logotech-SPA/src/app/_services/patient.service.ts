@@ -24,4 +24,12 @@ export class PatientService {
     updatePatient(id: number, patient: Patient) {
       return this.http.put(this.baseUrl + 'Patients/edit/' + id, patient);
     }
+
+    setMainPhoto(patientId: number, id: number) {
+      return this.http.post(this.baseUrl + 'patients/' + patientId + '/photos/' + id + '/setMain', {});
+    }
+
+    deletePhoto(patientId: number, id: number) {
+      return this.http.delete(this.baseUrl + 'patients/' + patientId + '/photos/' + id);
+    }
 }

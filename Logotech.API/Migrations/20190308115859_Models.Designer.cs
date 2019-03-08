@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Logotech.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20190301092054_PublicIdPhoto")]
-    partial class PublicIdPhoto
+    [Migration("20190308115859_Models")]
+    partial class Models
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -161,7 +161,8 @@ namespace Logotech.API.Migrations
 
                     b.Property<int?>("AdresseId");
 
-                    b.Property<bool>("Deplacement");
+                    b.Property<string>("Deplacement")
+                        .IsRequired();
 
                     b.Property<string>("Email")
                         .IsRequired();

@@ -159,7 +159,8 @@ namespace Logotech.API.Migrations
 
                     b.Property<int?>("AdresseId");
 
-                    b.Property<bool>("Deplacement");
+                    b.Property<string>("Deplacement")
+                        .IsRequired();
 
                     b.Property<string>("Email")
                         .IsRequired();

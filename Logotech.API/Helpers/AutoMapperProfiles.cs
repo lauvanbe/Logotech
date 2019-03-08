@@ -26,6 +26,10 @@ namespace Logotech.API.Helpers
 
             CreateMap<Photo, PhotoForReturnDto>();
             CreateMap<PhotoForCreationDto, Photo>();
+
+            CreateMap<User, UserForListDto>();
+            CreateMap<User, UserForDetailDto>();            
+            CreateMap<UserForRegisterDto, User>();
         }
     }
 }

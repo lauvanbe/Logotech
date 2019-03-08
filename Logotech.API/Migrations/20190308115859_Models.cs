@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Logotech.API.Migrations
 {
-    public partial class ModelsAdressePatientPhotoUserDocteur : Migration
+    public partial class Models : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -100,7 +100,7 @@ namespace Logotech.API.Migrations
                     Email = table.Column<string>(nullable: false),
                     TelFixe = table.Column<int>(nullable: true),
                     Gsm = table.Column<int>(nullable: true),
-                    Deplacement = table.Column<bool>(nullable: false),
+                    Deplacement = table.Column<string>(nullable: false),
                     AdresseId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
@@ -124,6 +124,7 @@ namespace Logotech.API.Migrations
                     Description = table.Column<string>(nullable: true),
                     DateAdded = table.Column<DateTime>(nullable: false),
                     IsMain = table.Column<bool>(nullable: false),
+                    PublicId = table.Column<string>(nullable: true),
                     PatientId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>

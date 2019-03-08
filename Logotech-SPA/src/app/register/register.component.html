@@ -16,7 +16,7 @@
     [ngClass]="{ 'is-invalid' : registerForm.get('password').errors && registerForm.get('password').touched }"
     class="form-control"
     formControlName="password"
-    placeholder="mot de passe">
+    placeholder="Mot de passe">
     <div class="invalid-feedback" *ngIf="registerForm.get('password').hasError('required') && registerForm.get('password').touched ">Le mot de passe est requis</div>
     <div class="invalid-feedback" *ngIf="registerForm.get('password').hasError('minlength') && registerForm.get('password').touched ">Le mot de passe doit être de minimum 4 caractères</div>
     <div class="invalid-feedback" *ngIf="registerForm.get('password').hasError('maxlength') && registerForm.get('password').touched ">Le mot de passe ne peut pas dépasser 8 caractères</div>
@@ -28,14 +28,90 @@
     registerForm.get('confirmPassword').touched && registerForm.hasError('mismatch')}"
     class="form-control"
     formControlName="confirmPassword"
-    placeholder="confirmer le mot de passe">
+    placeholder="Confirmer le mot de passe">
     <div class="invalid-feedback" *ngIf="registerForm.get('confirmPassword').hasError('required') && registerForm.get('confirmPassword').touched ">Le mot de passe est requis</div>
     <div class="invalid-feedback" *ngIf="registerForm.hasError('mismatch') && registerForm.get('confirmPassword').touched ">Les mots de passe doivent être identiques</div>
   </div>
 
+  <div class="form-group">
+    <input [ngClass]="{'is-invalid': registerForm.get('inami').errors && registerForm.get('inami').touched}" class="form-control"
+      placeholder="Inami" formControlName="inami">
+    <div class="invalid-feedback" *ngIf="registerForm.get('inami').touched && registerForm.get('inami').hasError('required')">Le numéro Inami requis</div>
+  </div>
+
+  <div class="form-group">
+    <input [ngClass]="{'is-invalid': registerForm.get('nom').errors && registerForm.get('nom').touched}" class="form-control"
+      placeholder="Nom" formControlName="nom">
+    <div class="invalid-feedback" *ngIf="registerForm.get('nom').touched && registerForm.get('nom').hasError('required')">Le nom est requis</div>
+  </div>
+
+  <div class="form-group">
+    <input [ngClass]="{'is-invalid': registerForm.get('prenom').errors && registerForm.get('prenom').touched}" class="form-control"
+      placeholder="Prénom" formControlName="prenom">
+    <div class="invalid-feedback" *ngIf="registerForm.get('prenom').touched && registerForm.get('prenom').hasError('required')">Le prénom est requis</div>
+  </div>
+
+  <div class="form-group">
+    <input [ngClass]="{'is-invalid': registerForm.get('email').errors && registerForm.get('email').touched}" class="form-control"
+      placeholder="Email" formControlName="email">
+    <div class="invalid-feedback" *ngIf="registerForm.get('email').touched && registerForm.get('email').hasError('required')">L'adresse Email est requise</div>
+  </div>
+
+  <div class="form-group">
+    <input class="form-control" placeholder="Téléphone fixe" formControlName="telFixe">
+  </div>
+
+  <div class="form-group">
+    <input class="form-control" placeholder="Gsm" formControlName="gsm">
+  </div>
+
+  <div class="form-group">
+    <label class="control-label" style="margin-right:10px">Déplacement: </label>
+    <label class="radio-inline">
+      <input class="mr-3" type="radio" value="oui" formControlName="deplacement">Oui
+    </label>
+    <label class="radio-inline ml-3">
+      <input class="mr-3" type="radio" value="non" formControlName="deplacement">Non
+    </label>
+  </div>
+
+  <div class="form-group">
+    <input [ngClass]="{'is-invalid': registerForm.get('rue').errors && registerForm.get('rue').touched}" class="form-control"
+      placeholder="Rue" formControlName="rue">
+    <div class="invalid-feedback" *ngIf="registerForm.get('rue').touched && registerForm.get('rue').hasError('required')">La rue est requise</div>
+  </div>
+
+  <div class="form-group">
+    <input [ngClass]="{'is-invalid': registerForm.get('numeroRue').errors && registerForm.get('numeroRue').touched}" class="form-control"
+      placeholder="Numéro de rue" formControlName="numeroRue">
+    <div class="invalid-feedback" *ngIf="registerForm.get('numeroRue').touched && registerForm.get('numeroRue').hasError('required')">Le numéro de maison est requis</div>
+  </div>
+
+  <div class="form-group">
+    <input class="form-control" placeholder="Boîte postal" formControlName="boitePostal">
+  </div>
+
+  <div class="form-group">
+    <input [ngClass]="{'is-invalid': registerForm.get('codePostal').errors && registerForm.get('codePostal').touched}" class="form-control"
+      placeholder="Code postal" formControlName="codePostal">
+    <div class="invalid-feedback" *ngIf="registerForm.get('codePostal').touched && registerForm.get('codePostal').hasError('required')">Le code postal de maison est requis</div>
+  </div>
+
+  <div class="form-group">
+    <input [ngClass]="{'is-invalid': registerForm.get('ville').errors && registerForm.get('ville').touched}" class="form-control"
+      placeholder="Ville" formControlName="ville">
+    <div class="invalid-feedback" *ngIf="registerForm.get('ville').touched && registerForm.get('ville').hasError('required')">La ville est requise</div>
+  </div>
+
+  <div class="form-group">
+    <input [ngClass]="{'is-invalid': registerForm.get('pays').errors && registerForm.get('pays').touched}" class="form-control"
+      placeholder="Pays" formControlName="pays">
+    <div class="invalid-feedback" *ngIf="registerForm.get('pays').touched && registerForm.get('pays').hasError('required')">Le pays est requis</div>
+  </div>
+
   <div class="form-group text-center">
-    <button class="btn btn-sucess" type="submit">Enregistrer</button>
-    <button class="btn btn-default" type="button" (click)="cancel()">Annuler</button>
+    <button class="btn btn-success" type="submit" [disabled]="!registerForm.valid">Enregistrer</button>
+    <button class="btn btn-danger" type="button" (click)="cancel()">Annuler</button>
   </div>
 
 </form>

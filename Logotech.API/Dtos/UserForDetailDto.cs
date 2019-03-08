@@ -1,18 +1,10 @@
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using Logotech.API.Models;
 
-namespace Logotech.API.Models
+namespace Logotech.API.Dtos
 {
-    public class User
+    public class UserForDetailDto
     {
-        public int Id { get; set; }
-        
-        public string Username { get; set; }
-        
-        public byte[] PasswordHash { get; set; }
-        
-        public byte[] PasswordSalt { get; set; }
-
         [Required(ErrorMessage = "Le numéro INAMI est requis.")]
         [Display(Name = "Numéro INAMI")]
         public int Inami { get; set; }     
@@ -41,8 +33,8 @@ namespace Logotech.API.Models
 
         [Required(ErrorMessage = "Veuillez spécifier si les déplacements sont possible.")]
         [Display(Name = "Visites à domicile")]
-        public string Deplacement { get; set; }
+        public bool Deplacement { get; set; }    
 
-        public Adresse Adresse { get; set; }
+        public Adresse Adresse { get; set; }     
     }
 }

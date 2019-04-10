@@ -18,7 +18,6 @@ namespace Logotech.API.Dtos
         public string Lateralite { get; set; }
         public string Commentaire { get; set; }
         public Adresse Adresse { get; set; }
-        public ICollection<Photo> Photos { get; set; }
 
     }
 }

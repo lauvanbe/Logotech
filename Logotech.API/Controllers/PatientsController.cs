@@ -47,7 +47,22 @@ namespace Logotech.API.Controllers
         {
              var patientFromRepo = await _repo.GetPatient(id);        
              
-            _mapper.Map(patientForUpdateDto, patientFromRepo);
+            patientFromRepo.Nom = patientForUpdateDto.Nom;
+            patientFromRepo.Prenom = patientForUpdateDto.Prenom;
+            patientFromRepo.DateNaissance = patientForUpdateDto.DateNaissance;
+            patientFromRepo.Email = patientForUpdateDto.Email;
+            patientFromRepo.TelFixe = patientForUpdateDto.TelFixe;
+            patientFromRepo.Gsm = patientForUpdateDto.Gsm;
+            patientFromRepo.PersonneContact = patientForUpdateDto.PersonneContact;
+            patientFromRepo.TelContact = patientForUpdateDto.TelContact;
+            patientFromRepo.Lateralite = patientForUpdateDto.Lateralite;
+            patientFromRepo.Anamnese = patientForUpdateDto.Anamnese;
+            patientFromRepo.Commentaire = patientForUpdateDto.Commentaire;
+            patientFromRepo.Adresse.Rue = patientForUpdateDto.Adresse.Rue;
+            patientFromRepo.Adresse.NumeroRue = patientForUpdateDto.Adresse.NumeroRue;
+            patientFromRepo.Adresse.BoitePostal = patientForUpdateDto.Adresse.BoitePostal;
+            patientFromRepo.Adresse.Ville = patientForUpdateDto.Adresse.Ville;
+            patientFromRepo.Adresse.Pays = patientForUpdateDto.Adresse.Pays;;
 
             
             if (await _repo.SaveAll())
@@ -55,6 +70,23 @@ namespace Logotech.API.Controllers
 
             throw new Exception($"Les modifications pour le patient {id} n'ont pas pu être sauvegardées");
         }
+
+       [HttpDelete("{id}")]
+        public async Task<IActionResult> DeletePatient(int id)
+        {
+            var patient = await _repo.GetPatient(id);
+
+
+            if (patient != null)
+            {
+                _repo.Delete(patient);
+            }
+
+            if (await _repo.SaveAll())
+                return Ok();
+
+            return BadRequest("Suppression du patient pas possible");
+        }        
 
     }
 }

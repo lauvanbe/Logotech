@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, observable, of } from 'rxjs';
 import { Patient } from '../_models/Patient';
 
 @Injectable({
@@ -32,4 +32,9 @@ export class PatientService {
     deletePhoto(patientId: number, id: number) {
       return this.http.delete(this.baseUrl + 'patients/' + patientId + '/photos/' + id);
     }
+
+    deletePatient(id: number) {
+      return this.http.delete(this.baseUrl + 'patients/' + id);
+    }
+
 }
